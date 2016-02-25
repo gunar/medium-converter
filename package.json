@@ -1,0 +1,39 @@
+{
+  "name": "medium-converter",
+  "version": "0.0.1",
+  "description": "Convert Medium posts to other media",
+  "main": "index.js",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-loader": "^6.2.2",
+    "webpack": "^1.12.13"
+  },
+  "dependencies": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "./node_modules/.bin/webpack-dev-server --content-base dist --no-info --colors --hot --inline --progress",
+    "build": "NODE_ENV=production node ./node_modules/.bin/webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gunar/medium-converter.git"
+  },
+  "keywords": [
+    "medium",
+    "convert",
+    "pdf",
+    "markdown",
+    "epub",
+    "mobi",
+    "medium.com"
+  ],
+  "author": "Gunar C. Gessner <gunar@gunargessner.com> (gunargessner.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gunar/medium-converter/issues"
+  },
+  "homepage": "https://github.com/gunar/medium-converter#readme"
+}

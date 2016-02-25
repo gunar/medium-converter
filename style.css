@@ -1,0 +1,51 @@
+/* Global */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  background-color: #FAD089;
+  color: #3B8183;
+}
+input, button {
+  font-size: large;
+  padding: 1em 0.5em;
+  border-radius: 10px;
+  color: #FAD089;
+  background-color: #3B8183;
+  border: 2px solid #FF9C5B;
+}
+input[type="text"] {
+  width: 60%;
+  font-weight: bold;
+  border-radius: 10px 0 0 10px;
+}
+button.fetch {
+  border-radius: 0 10px 10px 0;
+}
+
+/* Step changing */
+.step {
+  display: none;
+}
+
+body.step1 .step1 {
+  display: block;
+}
+
+body.step2 .step2 {
+  display: block;
+}
+
+body.step3 .step3 {
+  display: block;
+}
+
+/* Step 1 */
+
+
