@@ -27,6 +27,7 @@ const parseURL = url => {
 }
 
 window.download = type => {
+  document.body.className = 'step4'
   const filename = parseURL(document.getElementById('url').value) + '.' + type
   const blob = new Blob([window.markdown], {type: 'application/octet-stream'})
   const formData = new FormData()
@@ -49,4 +50,5 @@ const saveData = (blob, filename) => {
   document.body.appendChild(a)
   a.click()
   URL.revokeObjectURL(url)
+  document.body.className = 'step3'
 }

@@ -45,7 +45,6 @@ body.step2 .step2 {
 body.step3 .step3 {
   display: block;
 }
-
-/* Step 1 */
-
-
+body.step4 .step4 {
+  display: block;
+}
