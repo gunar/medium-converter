@@ -20,7 +20,7 @@ window.fetchHTML = _ => {
 window.reset = _ =>  document.body.className = 'step1'
 
 const parseURL = url => {
-  const user = url.match(/\/@([^/]+)\//)[1]
+  const user = url.match(/\/@?([^/]+)\//)[1]
   // We don't use title from medium-parser here because we'd have to replace spaces for _ anyway and this is ready
   const title = url.match(/([^/]+)-.*$/)[1]
   return `${user}-${title}`

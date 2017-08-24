@@ -1,39 +1,39 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-require('isomorphic-fetch');
-const parse = require('medium-parser');
+require('isomorphic-fetch')
+const parse = require('medium-parser')
 
-const cors = 'https://cors-anywhere.herokuapp.com/';
+const cors = 'https://cors-anywhere.herokuapp.com/'
 
 window.fetchHTML = _ => {
-  document.body.className = 'step2';
-  const url = document.getElementById('url').value;
+  document.body.className = 'step2'
+  const url = document.getElementById('url').value
 
   Promise.resolve(fetch(`${cors}${url}`, {
     credentials: 'same-origin',
   })).then(response => response.text())
   .then(text => {
-    window.markdown = parse(text).markdown;
+    window.markdown = parse(text).markdown
     document.body.className = 'step3'
   })
 
-};
+}
 
-window.reset = _ =>  document.body.className = 'step1';
+window.reset = _ =>  document.body.className = 'step1'
 
 const parseURL = url => {
-  const user = url.match(/\/@([^/]+)\//)[1];
+  const user = url.match(/\/@?([^/]+)\//)[1]
   // We don't use title from medium-parser here because we'd have to replace spaces for _ anyway and this is ready
-  const title = url.match(/([^/]+)-.*$/)[1];
-  return `${user}-${title}`;
-};
+  const title = url.match(/([^/]+)-.*$/)[1]
+  return `${user}-${title}`
+}
 
 window.download = type => {
-  document.body.className = 'step4';
-  const filename = parseURL(document.getElementById('url').value) + '.' + type;
-  const blob = new Blob([window.markdown], {type: 'application/octet-stream'});
-  const formData = new FormData();
-  formData.append('input_files[]', blob, 'markdown.md');
-  formData.append('from', 'markdown');
+  document.body.className = 'step4'
+  const filename = parseURL(document.getElementById('url').value) + '.' + type
+  const blob = new Blob([window.markdown], {type: 'application/octet-stream'})
+  const formData = new FormData()
+  formData.append('input_files[]', blob, 'markdown.md')
+  formData.append('from', 'markdown')
   formData.append('to', type)
   Promise.resolve(fetch('https://cors-anywhere.herokuapp.com/http://c.docverter.com/convert', {
     method: 'post',
