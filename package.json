@@ -11,6 +11,12 @@
     "webpack": "^1.12.13"
   },
   "dependencies": {
+    "medium-parser" :"0.1.0",
+    "isomorphic-fetch" : "2.2.1"
+  },
+  "browser" : {
+    "medium-parser" : "./node_modules/medium-parser/lib/index.js",
+    "isomorphic-fetch" : "./node_modules/isomorphic-fetch/fetch-npm-browserify.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
